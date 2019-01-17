@@ -17,16 +17,25 @@ namespace test3.Controllers
     public class CostsController : ODataController
     {
         private readonly IGetCost _getCost;
+        private readonly IGetCostWithId _getCostWithId;
 
-        public CostsController(IGetCost getCost)
+        public CostsController(IGetCost getCost,
+                               IGetCostWithId getCostWithId)
         {
             _getCost = getCost;
+            _getCostWithId = getCostWithId;
         }
 
         [EnableQuery]
         public List<GetCostModel> Get()
         {
             return _getCost.GetCostMethod();
+        }
+
+        [EnableQuery]
+        public IActionResult Get(int key)
+        {
+            return _getCostWithId.GetCostWithIdMethod(key);
         }
     }
 }

@@ -35,6 +35,7 @@ namespace test3
             services.AddDbContext<CostsContext>(options => options.UseSqlServer(connection));
             services.AddOData();
             services.AddTransient<IGetCost, GetCost>();
+            services.AddTransient<IGetCostWithId, GetCostWithId>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
