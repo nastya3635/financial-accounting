@@ -13,8 +13,7 @@ using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
-using Context;
-
+using test3.Services;
 
 namespace test3
 {
@@ -35,6 +34,7 @@ namespace test3
             // добавляем контекст CostsContext в качестве сервиса в приложение
             services.AddDbContext<CostsContext>(options => options.UseSqlServer(connection));
             services.AddOData();
+            services.AddTransient<IGetCost, GetCost>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -59,13 +59,5 @@ namespace test3
             builder.EntitySet<Category>("Categories");
             return builder.GetEdmModel();
         }
-
-        //private static IEdmModel GetEdmModel()
-        //{
-        //    ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
-        //    builder.EntitySet<Cost>("Costs");
-        //    builder.EntitySet<Category>("Categories");
-        //    return builder.GetEdmModel();
-        //}
     }
 }
