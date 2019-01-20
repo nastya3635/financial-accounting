@@ -55,8 +55,16 @@ namespace test3
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}");
+            });
+
             app.UseMvc(b =>
             {
+                b.Select().Expand().Filter().OrderBy().MaxTop(100).Count();
                 b.MapODataServiceRoute("odata", "odata", GetEdmModel());
             });
         }
