@@ -36,6 +36,14 @@ namespace test3
             services.AddOData();
             services.AddTransient<IGetCost, GetCost>();
             services.AddTransient<IGetCostWithId, GetCostWithId>();
+            services.AddTransient<IPostCost, PostCost>();
+            services.AddTransient<IPutCost, PutCost>();
+            services.AddTransient<IDeleteCost, DeleteCost>();
+            services.AddTransient<IGetCategory, GetCategory>();
+            services.AddTransient<IGetCategoryWithId, GetCategoryWithId>();
+            services.AddTransient<IPostCategory, PostCategory>();
+            services.AddTransient<IPutCategory, PutCategory>();
+            services.AddTransient<IDeleteCategory, DeleteCategory>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

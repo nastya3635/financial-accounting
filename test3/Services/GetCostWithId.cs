@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using test3.Models;
 
 namespace test3.Services
 {
-    public class GetCostWithId : ControllerBase, IGetCostWithId 
+    public class GetCostWithId : ODataController, IGetCostWithId 
     {
         CostsContext db;
         public GetCostWithId(CostsContext context)

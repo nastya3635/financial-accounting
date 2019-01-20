@@ -12,7 +12,7 @@ namespace test3
         public CostsContext(DbContextOptions<CostsContext> options)
             : base(options)
         {
-            // Database.EnsureCreated();
+             Database.EnsureCreated();
         }
         public DbSet<Cost> Costs { get; set; }
         public DbSet<Category> Categories { get; set; }

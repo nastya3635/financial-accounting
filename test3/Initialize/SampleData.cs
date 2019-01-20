@@ -8,6 +8,7 @@ namespace test3.Initialize
     {
         public static void Initialize(CostsContext context)
         {
+           
             if (!context.Costs.Any() && !context.Categories.Any())
             {
                 {
